@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>AutoCheck - Sistema de Manutenção</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #2b2b35;
+      color: #ffffff;
+    }
+
+    h2 {
+      text-align: center;
+      color: #327be9;
+      text-decoration: underline;
+      font-size: xx-large;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      padding: 8px;
+      font-weight: bolder;
+    }
+
+    button {
+      padding: 10px;
+      background: #FF6F00;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    .veiculo {
+      background: #3f3c4d;
+      margin: 15px 0;
+      color: #f5e9e9;
+      padding: 10px;
+      border-radius: 5px;
+      border-left: 5px solid #161616;
+      box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .subtitulo {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #fafafa;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .manutencao {
+      margin-top: 5px;
+      padding: 5px;
+      background: #555a75;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>AutoCheck</h2>
+  <div id="telaLogin">
+    <input type="text" id="loginUsuario" placeholder="Usuário" required>
+    <input type="password" id="loginSenha" placeholder="Senha" required>
+    <button onclick="logar()">Entrar</button>
+    <button onclick="mostrarTelaCadastroUsuario()">Cadastrar Novo Usuário</button>
+  </div>
+
+
+  <div id="telaCadastroUsuario" class="hidden">
+    <input type="text" id="novoUsuario" placeholder="Novo Usuário" required>
+    <input type="password" id="novaSenha" placeholder="Nova Senha" required>
+    <button onclick="cadastrarUsuario()">Cadastrar</button>
+    <button onclick="voltarLogin()">Voltar</button>
+  </div>
+
+  <div id="telaSistema" class="hidden">
+   <form id="formVeiculo">
+      <input type="text" id="nome" placeholder="Nome do Cliente" required>
+      <input type="text" id="cpf" placeholder="CPF do Cliente" required>
+      <input type="text" id="marca" placeholder="Marca do Veículo" required>
+      <input type="text" id="modelo" placeholder="Modelo do Veículo" required>
+      <input type="date" id="dataEntrada">
+      <select id="tipoManutencao" required>
+        <option value="Preventiva">Preventiva</option>
+        <option value="Corretiva">Urgente</option>
+        <option value="Preditiva">Monitorada</option>
+      </select>
+      <button type="submit">Cadastrar Veículo</button>
+      <button type="button" onclick="sair()">Sair</button>
+    </form>
+
+    <div class="subtitulo">Veículos Cadastrados</div>
+    <div id="listaVeiculos"></div>
+  </div>
+  <script src="codigo.js"></script>
+</body>
+</html>
